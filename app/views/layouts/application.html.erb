@@ -1,35 +1,82 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TechTalentBlog</title>
     
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, intial-scale=1">
-    
-  <title>TtsBlog</title>
-    
-    
+<!--=========BOOT STRAP=========-->    
+  <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
-<!-- BOOTSTRAP START-->
-<!-- Latest compiled and minified CSS -->
-<%= stylesheet_link_tag href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" %>
-
-<!-- Optional theme -->
-<%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" %>
-
-<!-- Latest compiled and minified JavaScript -->
-<%= javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" %>
-<!-- BOOTSTRAP FINISH-->
-<!-- BOOTSTRAP FINISH-->
+  <%= javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js" %>
     
+<!--=========BOOT STRAP NAV BAR=========-->
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">HOME</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="http://rabbyia.github.io/Rabbyia_Resume/">Resume<span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Interviews</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Additional Links <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Interviews</a></li>
+            <li><a href="#">Tutorials</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Contact Me</a></li>
+            <li class="divider"></li>
+
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Blogs I follow <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Blog 1</a></li>
+            <li><a href="#">Blog 2</a></li>
+            <li><a href="#">Blog 3</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Additional Resources</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
     
+<div class="container">
+  <div class="pull-right">
+    <% if user_signed_in? %>
+        <% if user_signed_in? %>
+     <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary" %> <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %> 
+    
+      
+    <% end %>
+  </div>
+        
+    <% end %>
+      
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <%= yield %>
-
+</div>
 </body>
 </html>
